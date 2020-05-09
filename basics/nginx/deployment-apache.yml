@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ghost-deployment
+  name: apache-deployment
   labels:
-    app: ghost-deployment-label
+    app: apache-deployment-label
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: ngnix-pod
-      app: demo-nginx
+      name: webserver-pod
+      app: webserver-app
   template:
     metadata:
       labels:
-        name: ngnix-pod
-        app: demo-nginx
+        name: webserver-pod
+        app: webserver-app
     spec:
       containers:
       - name: httpd
