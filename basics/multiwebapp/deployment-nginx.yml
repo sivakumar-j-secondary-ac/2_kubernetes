@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginx-deployment-label
 spec:
-  replicas: 1
+  replicas: 5
   selector:
     matchLabels:
       name: webserver-pod
