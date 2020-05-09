@@ -17,7 +17,7 @@ spec:
         app: demo-nginx
     spec:
       containers:
-      - name: ghost
-        image: ghost:latest
+      - name: httpd
+        image: httpd:latest
         ports:
-        - containerPort: 2368
+        - containerPort: 80
