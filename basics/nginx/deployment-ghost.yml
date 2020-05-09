@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ghost-deployment
+  labels:
+    app: demo-nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: ngnix-pod
+      app: demo-nginx
+  template:
+    metadata:
+      labels:
+        name: ngnix-pod
+        app: demo-nginx
+    spec:
+      containers:
+      - name: ghost
+        image: ghost:latest
+        ports:
+        - containerPort: 2368
