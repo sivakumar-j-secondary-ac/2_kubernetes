@@ -1,0 +1,30 @@
+# kubectl create -f replace_vs_create.yml
+# kubectl apply -f replace_vs_create.yml
+# kubectl replace -f replace_vs_create.yml
+# kubectl get all
+# kubectl describe
+# kubectl delete
+# cat << EOF >  replace_vs_create.yml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  labels:
+    app: webapp-deployment-label
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: webapp-pod
+      app: webapp-app
+  template:
+    metadata:
+      labels:
+        name: webapp-pod
+        app: webapp-app
+    spec:
+      containers:
+      - name: nginx #httpd
+        image: nginx #httpd:latest
+        ports:
+        - containerPort: 80
